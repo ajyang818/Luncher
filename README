@@ -5,5 +5,5 @@ Default is currently set to divide the Yipit team (www.yipit.com/about/team) int
 
 To run:
 
--Locally: cd into the project folder and in the terminal run 'meteor'. The default should be localhost:3000</li>
--Deploy: cd into the project folder and in the terminal run 'meteor deploy <name>'. This will deploy it to name.meteor.com</li>
+-Locally: cd into the project folder and in the terminal run 'meteor'. The default should be localhost:3000
+-Deploy: cd into the project folder and in the terminal run 'meteor deploy <name>'. This will deploy it to name.meteor.com
