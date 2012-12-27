@@ -1,1 +1,10 @@
-This is the README for Luncher!!
+Luncher - an app that creates random groups (e.g. for company lunch outings) with a user-set list of names
+(Written with Meteor)
+
+Default is currently set to divide the Yipit team (www.yipit.com/about/team) into 3 groups. Other names can be added to the randomizer as well.
+
+To run:
+<ul>
+<li>Locally: cd into the project folder and in the terminal run 'meteor'. The default should be localhost:3000</li>
+<li>Deploy: cd into the project folder and in the terminal run 'meteor deploy <name>'. This will deploy it to name.meteor.com</li>
+</ul>
