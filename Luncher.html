@@ -1,0 +1,138 @@
+<head>
+	<title>Luncher - for Yipit</title>
+</head>
+
+<body>
+	<h1> Yipit's Luncher App </h1>
+	<h3> Generates random groups of Yipit employees </h3>
+  	{{> hello}}
+  </br></br>
+  		{{> luncherBody}}
+</body>
+
+
+
+
+<template name="hello">
+	<div class = "hello">
+	<h4> Step: {{stepName}} </h4>
+	<em>{{greeting}}</em>
+	</div>
+</template>
+
+
+
+
+
+<template name = "luncherBody">
+	{{#if whereAmI}}
+		<span class = "groupNumSection">
+		<em><u><strong>First:</strong> How many groups would you like to form?</u></em>
+		<p>Current # groups setting: {{numGroups}} </p>
+		<span class = "inputField">
+			<input type="text" id="wantedNumGroups" value="" />
+		</span>
+		<input type="button" class="setNumGroups" value="Set # Groups" />
+		</span>
+
+		<span class = "addNameSection">
+		<em><u><strong>Second:</strong> Is there anybody else joining us for lunch?</u></em>
+		<p>Name to add (one at a time):</p>
+		<span class = "inputField">
+			<input type="text" id="nameToAdd" value="" />
+		</span>
+		<input type="button" class="addName" value="Add This Person" />
+		</span>
+
+		</br></br>
+		</br></br>
+		</br></br>
+		</br></br>
+		</br></br>
+		
+		<div class = "nameListsSection">
+		<em><u><strong>Third:</strong> Who should be put into the randomizer?</u></em>
+		</br></br>
+
+		<input type="button" class="resetLists" value="Reset Lists" /> ...to the Yipit team roster
+		</br></br>
+
+		<span class = "yesList">
+			<strong>The yes list:</strong>
+			<ul>
+			{{#each totalList}}
+				{{#if lunching}}
+					<li>{{> individual}}</li>
+				{{/if}}
+			{{/each}}
+			</ul>
+		<div class = "switchButton">
+			<input type="button" class="switchToNo" value="No Lunch for Them!" />
+			<input type="button" class="switchAllToNo" value="Nobody Gets Food!!" />
+		</div>
+		</span>
+
+		<span class = "noList">
+			<strong>The no list:</strong>
+			<ul>
+			{{#each totalList}}
+				{{#unless lunching}}
+					<li>{{> individual}}</li>
+				{{/unless}}
+			{{/each}}
+			</ul>
+		<div class = "switchButton">
+			<input type="button" class="switchToYes" value="Give Them Food!" />
+			<input type="button" class="switchAllToYes" value="Give Everybody Food!!" />
+		</div>
+		</span>
+		</div>
+		</br></br>
+		
+		<div class = "stepButton">
+			<input type="button" class="stepToGroups" value="RANDOMIZE!!" />
+		</div>
+	{{/if}}
+
+	<div class = "resultsScreen">
+	{{#unless whereAmI}}
+		<em>Results</em>
+		</br></br>
+		{{#each groupsList}}
+			{{> group}}
+		{{/each}}
+		<div class = "stepButton">
+			<input type="button" class="stepToSelection" value="Return to name selection" />
+		</div>
+	{{/unless}}
+	</div>
+</template>
+
+
+
+
+
+<template name="individual">
+	<div class = "individual {{#if highlight}}selected{{/if}}">
+		<span class = "name"> {{name}} </span>
+		<!-- <span class = "score"> {{score}} </span>
+		<span class = "lunching"> {{lunching}} </span>
+		<span class = "highlight"> {{highlight}} </span>
+		{{#if group}}
+			<span class = "group"> Group: {{group}} </span>
+		{{/if}} -->
+	</div>
+</template>
+
+
+
+<template name="group">
+	<div class = "group">
+		<!-- <span class = "groupID"> Group #{{groupID}} </span> -->
+		<span class = "name"> Group {{name}} </span>
+		<ul>
+		{{#each people}}
+			<li><span class = "people"> {{name}} </span></li>
+		{{/each}}
+	</div>
+</template>
