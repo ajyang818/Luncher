@@ -162,11 +162,34 @@ if (Meteor.isClient) {
 /////////////////////////////////////////////////////////////
 // GENERAL FUNCTIONS
 
+// "borrowed" from http://michalbe.blogspot.com/2011/02/javascript-random-numbers-with-custom.html
+
+var CustomRandom = function(seed) {
+
+    var constant = Math.pow(2, 13)+1,
+        prime = 37,
+        maximum = Math.pow(2, 50);
+ 
+    return {
+        next : function() {
+            seed *= constant;
+            seed += prime;
+            seed %= maximum;
+            
+            return seed;
+        }
+    };
+};
+
+
 // Isolates the list of people going to lunch and assigns random #s
 var randomizeYesList = function () {
   YesList.remove({});
+  var d = new Date();
+  var seed = (d.getDate() + d.getFullYear() + d.getMonth()) * TotalList.find({lunching: true}).count();
+  var random = CustomRandom(seed);
   var yesses = TotalList.find({lunching: true}).forEach(function(individual) {
-    YesList.insert({name: individual.name, score: Math.random(), group: null});
+    YesList.insert({name: individual.name, score: random.next(), group: null});
   });
 }
 
