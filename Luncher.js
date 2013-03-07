@@ -16,7 +16,6 @@ var defaultNames = ["Vin Vacanti",
                     "Zach Smith",
                     "Nitya Oberoi",
                     "Steve Pulec",
-                    "David Sinsky",
                     "Dave Tomback",
                     "Henry Xie",
                     "Kelly Byrne",
@@ -31,10 +30,11 @@ var defaultNames = ["Vin Vacanti",
                     "Fabio Costa",
                     "Sean Spielberg",
                     "Laura Groetzinger",
-                    "Carl Collins",
                     "Lincoln de Sousa",
                     "Emily Tiernan",
-                    "Allen Yang"];
+                    "Allen Yang",
+                    "Rumela Das",
+                    "Jordan Milan"];
 
 // A list of Greek alphabet characters to serve as fun names for the final groups.
 // There are 12 letters to use here (starting with index 1). Groups 13 and beyond will just be numbered.
@@ -42,7 +42,7 @@ var funNames = ['0', '\u03B1', '\u03B2', '\u03B3', '\u03B4', '\u03B5', '\u03B6',
 
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
-// CLIENT 
+// CLIENT
 
 if (Meteor.isClient) {
 
@@ -84,7 +84,7 @@ if (Meteor.isClient) {
 //.........Testing arena....................................
 
 //..........................................................
-// EVENTS 
+// EVENTS
 
 //---------HELLO events
 // (Placeholder)
@@ -169,13 +169,13 @@ var CustomRandom = function(seed) {
     var constant = Math.pow(2, 13)+1,
         prime = 37,
         maximum = Math.pow(2, 50);
- 
+
     return {
         next : function() {
             seed *= constant;
             seed += prime;
             seed %= maximum;
-            
+
             return seed;
         }
     };
@@ -233,8 +233,8 @@ var totalListCleaner = function () {
     }
 
     if (TotalList.find().count() === 0) {
-      // var defaultNames = ["Allen Yang", 
-      //                     "Henry Xie", 
+      // var defaultNames = ["Allen Yang",
+      //                     "Henry Xie",
       //                     "Nitya Oberoi",
       //                     "Ganesh G.",
       //                     "Vin",
@@ -256,7 +256,7 @@ var totalListCleaner = function () {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    
+
     // Sets the Yipit roster to be all on the 'yes' list
     totalListCleaner();
 
