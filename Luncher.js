@@ -19,7 +19,6 @@ var defaultNames = ["Vin Vacanti",
                     "Dave Tomback",
                     "Henry Xie",
                     "Kelly Byrne",
-                    "Ben Plesser",
                     "Unaiz Kabani",
                     "Joe Johnson",
                     "Mingwei Gu",
@@ -27,14 +26,14 @@ var defaultNames = ["Vin Vacanti",
                     "Andrew Gross",
                     "Suneel Chakravorty",
                     "Alice Li",
-                    "Fabio Costa",
                     "Sean Spielberg",
                     "Laura Groetzinger",
                     "Lincoln de Sousa",
                     "Emily Tiernan",
                     "Allen Yang",
                     "Rumela Das",
-                    "Jordan Milan"];
+                    "Jordan Milan",
+                    "Matt Raoul"];
 
 // A list of Greek alphabet characters to serve as fun names for the final groups.
 // There are 12 letters to use here (starting with index 1). Groups 13 and beyond will just be numbered.
