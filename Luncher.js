@@ -33,7 +33,9 @@ var defaultNames = ["Vin Vacanti",
                     "Allen Yang",
                     "Rumela Das",
                     "Jordan Milan",
-                    "Matt Raoul"];
+                    "Matt Raoul",
+                    "Michelle Scharfstein",
+                    "Hugo Tavares"];
 
 // A list of Greek alphabet characters to serve as fun names for the final groups.
 // There are 12 letters to use here (starting with index 1). Groups 13 and beyond will just be numbered.
